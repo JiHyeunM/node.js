@@ -5,6 +5,9 @@ const Post = require("../schemas/post")
 
 // 게시글 작성
 router.post("/", async (req,res)=>{ // post메서드 사용 /로 보냄
+
+
+    
     // const abc = req.body.user
     // const {title} = req.body    구조분해할당
     // const {password} = req.body

@@ -28,6 +28,7 @@ router.post("/:_postId", async(req,res)=>{
 // 댓글 목록 조회
 router.get("/:_postId", async(req, res)=>{
     try{
+        const {_postId} =  req.params;
         const comments = await Comm.find({_postId}).sort("-createdAt");
         const comment = comments.map((item)=>{
             return{

@@ -53,7 +53,7 @@ router.put("/:_commentId", async(req,res)=>{
         const comment = await Comm.findOne({_id:_commentId})
         if(content == ""){res.json({msg : "댓글 내용을 입력해 주세요"})}
         else if(comment.password == password){
-            await Comm.updateOne({_id:_postId}, {$set:{content}})
+            await Comm.updateOne({_id:_commentId}, {$set:{content}})
             return res.status(201).json({msg : "댓글을 수정하였습니다"})
         }else{
             return res.status(400).json({
@@ -72,7 +72,7 @@ router.delete("/:_commentId", async(req,res)=>{
         const {password} = req.body
         const comment = await Comm.findOne({_id:_commentId})
         if(comment.password == password){
-            await Comm.deleteOne({_id:_postId})
+            await Comm.deleteOne({_id:_commentId})
             return res.status(201).json({msg:"댓글을 삭제하였습니다"})
         }else{
             return res.status(400).json({
